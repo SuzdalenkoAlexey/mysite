@@ -68,10 +68,10 @@ DATABASES = {
     },
      'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'openio$default',
-        'USER': 'openio',
+        'NAME': 'misexo$default',
+        'USER': 'misexo',
         'PASSWORD': 'svoboda2019A.',
-        'HOST': 'openio.mysql.pythonanywhere-services.com',  
+        'HOST': 'misexo.mysql.pythonanywhere-services.com',  
         'PORT': '3306',    
     }
     # 'default': {
