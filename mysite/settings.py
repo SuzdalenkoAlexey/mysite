@@ -62,10 +62,26 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'openio$default',
+        'USER': 'openio',
+        'PASSWORD': 'svoboda2019A.',
+        'HOST': 'openio.mysql.pythonanywhere-services.com',  
+        'PORT': '3306',    
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'mibase',
+    #     'USER': 'root',
+    #     'PASSWORD': '',
+    #     'HOST': '127.0.0.1',  
+    #     'PORT': '3306',    
+    # }
 }
 
 
