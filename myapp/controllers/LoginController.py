@@ -12,9 +12,9 @@ def loginFunction(request):
             suzdal_user = SuzdalUser.objects.get_or_create(email=reg_email)
             if suzdal_user.token == req_token:
                 # user login
-                suzdal_user.uid = str(uuid.uuid4)
+                suzdal_user.uid = str(uuid.uuid4())
                 suzdal_user.save()
-                
+
                 return  HttpResponse("Login Controller false creadentials")
             else:
                 return  HttpResponse("Login Controller false creadentials")
