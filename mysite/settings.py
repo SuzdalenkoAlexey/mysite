@@ -1,5 +1,7 @@
 from pathlib import Path
+import socket
 
+mi_host_name = socket.gethostname()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,22 +21,23 @@ ALLOWED_HOSTS = ['misexo.pythonanywhere.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # 'django.contrib.admin',
+    # 'django.contrib.auth',
+    # 'django.contrib.contenttypes',
+    # 'django.contrib.sessions',
+    # 'django.contrib.messages',
+    # 'django.contrib.staticfiles',
+    'myapp'
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.security.SecurityMiddleware',
+    # 'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # 'django.contrib.messages.middleware.MessageMiddleware',
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -45,12 +48,12 @@ TEMPLATES = [
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
+            #  'context_processors': [
+            #      'django.template.context_processors.debug',
+            #      'django.template.context_processors.request',
+            #      'django.contrib.auth.context_processors.auth',
+            #      'django.contrib.messages.context_processors.messages',
+            #  ],
         },
     },
 ]
@@ -61,19 +64,21 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
 DATABASES = {
-    'sqlite': {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'misexo$default',
-        'USER': 'misexo',
-        'PASSWORD': 'svoboda2019A.',
-        'HOST': 'misexo.mysql.pythonanywhere-services.com',  
-        'PORT': '3306',    
-    }
+    #   'default': {
+    #      'ENGINE': 'django.db.backends.mysql',
+    #      'NAME': 'misexo$default',
+    #      'USER': 'misexo',
+    #      'PASSWORD': 'svoboda2019A.',
+    #      'HOST': 'misexo.mysql.pythonanywhere-services.com',  
+    #      'PORT': '3306',    
+    #  }
+
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql',
     #     'NAME': 'mibase',
