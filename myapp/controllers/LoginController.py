@@ -1,6 +1,7 @@
 import uuid
 from django.http import HttpResponse
 from ..models import SuzdalUser
+from ..util.suzdal_response import JR
 
 def loginFunction(request):
 
@@ -15,12 +16,12 @@ def loginFunction(request):
                 suzdal_user.uid = str(uuid.uuid4())
                 suzdal_user.save()
 
-                return  HttpResponse("Login Controller false creadentials")
+                return  JR({'response': 'Login Controller false creadentials '+suzdal_user.id })
             else:
-                return  HttpResponse("Login Controller false creadentials")
+                return  JR({'response': 'Login Controller false creadentials'})
         except:
-            return  HttpResponse("Login Controller false user")
+            return  JR({'response': 'Login Controller false user'})
     else:
-        return  HttpResponse("Login Controller empty request")
+        return  JR({'response': 'Login Controller empty request'})
 
    
