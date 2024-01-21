@@ -8,3 +8,5 @@ def JR(x):
     jsonResponse["Access-Control-Max-Age"] = "1000"
     # jsonResponse["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
     return jsonResponse
+
+

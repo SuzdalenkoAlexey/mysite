@@ -137,3 +137,11 @@ MEDIA_ROOT = '/home/misexo/mysite/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = '/home/misexo/mysite/static'
 STATIC_URL = '/static/'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587                                            # 587 465
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mis.citas.app@gmail.com'
+EMAIL_HOST_PASSWORD = 'eekb rgeg zjfj ayvf'

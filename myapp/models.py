@@ -21,7 +21,7 @@ class SuzdalUser(models.Model):
     page_title  = models.CharField(max_length=77, null=True)
     about_me    = models.TextField(null=True)
 
-    coverImage  = models.CharField(max_length=77, null=True)
+    cover_image = models.CharField(max_length=77, null=True)
     images      = models.CharField(max_length=555, null=True)
    
     complaints  = models.IntegerField(null=True) 
