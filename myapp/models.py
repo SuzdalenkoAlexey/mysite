@@ -15,7 +15,6 @@ class SuzdalUser(models.Model):
 
     name        = models.CharField(max_length=33, null=True)
     age         = models.CharField(max_length=3, null=True)
-    price       = models.CharField(max_length=11, null=True)
     phone       = models.CharField(max_length=22, null=True)
 
     page_title  = models.CharField(max_length=77, null=True)

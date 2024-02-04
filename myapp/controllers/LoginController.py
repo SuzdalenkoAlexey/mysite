@@ -29,7 +29,7 @@ def createUser(request):
         return JR({'response': 'error'})
     
 
-# 192.168.51.166:5500/publicar-anuncio/?email=alexey.saron@gmail.com&token=99b31467-216c-4c28-9b0d-eb3652bb91ff
+# 192.168.51.166:5500/publicar-perfil/?email=alexey.saron@gmail.com&token=99b31467-216c-4c28-9b0d-eb3652bb91ff
 def send_email(userEmail, link):
     subject        = 'MIS CITAS'
     from_email     = 'mis.citas.app@gmail.com'
@@ -38,8 +38,8 @@ def send_email(userEmail, link):
     <html>
         <body style="background-color: #fff8f4;">
             <div style="text-align: center; font-size: 22px;">
-                <p>Inicia sesión en MIS CITAS y pública su perfil</p>
-                <a href="http://192.168.51.166:5500/publicar-anuncio/index.html'''+link+'''" target="_blank">
+                <p>Inicia sesión en MIS CITAS y pública tu perfil</p>
+                <a href="http://192.168.51.166:5500/publicar-perfil/index.html'''+link+'''" target="_blank">
                     <input type="button" value="Login" style="background-color: #E36831; padding: 11px; border: none; border-radius: 4px; color:white; font-size: 22px;">
                 </a>
             </div>
