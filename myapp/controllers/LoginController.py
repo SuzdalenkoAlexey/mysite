@@ -39,7 +39,7 @@ def send_email(userEmail, link):
         <body style="background-color: #fff8f4;">
             <div style="text-align: center; font-size: 22px;">
                 <p>Inicia sesión en MIS CITAS y pública tu perfil</p>
-                <a href="http://192.168.51.166:5500/publicar-perfil/index.html'''+link+'''" target="_blank">
+                <a href="https://miscitas.eu/publicar-perfil/index.html'''+link+'''" target="_blank">
                     <input type="button" value="Login" style="background-color: #E36831; padding: 11px; border: none; border-radius: 4px; color:white; font-size: 22px;">
                 </a>
             </div>
