@@ -72,11 +72,11 @@ def loginFunction(request):
                 return  JR({
                     'id': suzdal_user.id,
                     'province': suzdal_user.province,
+                    'zone':suzdal_user.zone,
                     'category': suzdal_user.category,
                     'city': suzdal_user.city,
                     'name': suzdal_user.name,
                     'age': suzdal_user.age,
-                    'price': suzdal_user.price,
                     'phone': suzdal_user.phone,
                     'page_title': suzdal_user.page_title,
                     'about_me': suzdal_user.about_me,
