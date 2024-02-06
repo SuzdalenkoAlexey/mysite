@@ -9,9 +9,9 @@ class SuzdalUser(models.Model):
     last_login  = models.CharField(max_length=22, null=True)
 
     province    = models.CharField(max_length=3, null=True)
-    category    = models.CharField(max_length=2, null=True)
+    category    = models.CharField(max_length=3, null=True)
     city        = models.CharField(max_length=22, null=True)
-    zone        = models.CharField(max_length=77, null=True)
+    zone        = models.CharField(max_length=22, null=True)
 
     name        = models.CharField(max_length=33, null=True)
     age         = models.CharField(max_length=3, null=True)
@@ -21,7 +21,7 @@ class SuzdalUser(models.Model):
     about_me    = models.TextField(null=True)
 
     cover_image = models.CharField(max_length=77, null=True)
-    images      = models.CharField(max_length=555, null=True)
+    images      = models.TextField(null=True)
    
     complaints  = models.IntegerField(null=True) 
     state       = models.IntegerField(null=True)
