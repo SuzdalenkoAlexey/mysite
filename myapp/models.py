@@ -8,7 +8,7 @@ class SuzdalUser(models.Model):
     first_login = models.CharField(max_length=22, null=True) # 2022-11-11 14:13:43
     last_login  = models.CharField(max_length=22, null=True)
 
-    province    = models.CharField(max_length=33, null=True)
+    province    = models.CharField(max_length=3, null=True)
     category    = models.CharField(max_length=2, null=True)
     city        = models.CharField(max_length=22, null=True)
     zone        = models.CharField(max_length=77, null=True)

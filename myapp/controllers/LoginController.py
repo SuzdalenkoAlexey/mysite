@@ -10,7 +10,7 @@ from django.http import HttpResponse
 
 def createUser(request):
     user_token = str(uuid.uuid4())
-    userEmail = request.POST.get('user_email', 'none') # alexey.saron@gmail.com
+    userEmail = request.POST.get('user_email', 'none').strip() # alexey.saron@gmail.com
     
     if userEmail != 'none':
         index1 = userEmail.find('@')
