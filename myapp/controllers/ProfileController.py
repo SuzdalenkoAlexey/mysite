@@ -24,11 +24,7 @@ def saveUserData(request):
             return  UP(suzdal_user)
         else:
             print("NO ENCONTRADO")
-            return JR({'res':'token false'})
+            return JR({'error':'token false'})
     except:
         print("NO ENCONTRADO")
-        return JR({'res':'not found'})
-
-    return  JR({
-                'id':1
-                })
+        return JR({'error':'not found'})

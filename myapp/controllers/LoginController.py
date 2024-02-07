@@ -28,9 +28,9 @@ def createUser(request):
                 if suzdal_user.first_login == None:
                     suzdal_user.first_login = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             suzdal_user.save()
-            return JR({'response': 'Usuario Creado', 'id': suzdal_user.id})
+            return JR({'res':'Usuario Creado','id':str(suzdal_user.id),'message':'Le enviamos un correo para que pueda iniciar sesión'})
     else:
-        return JR({'response': 'error'})
+        return JR({'error': 'error'})
     
 
 # 192.168.51.166:5500/publicar-perfil/?email=alexey.saron@gmail.com&token=99b31467-216c-4c28-9b0d-eb3652bb91ff
@@ -72,11 +72,11 @@ def loginFunction(request):
                 suzdal_user.save()
                 return  UP(suzdal_user)
             else:
-                return  JR({'response': 'Login Controller false creadentials'})
+                return  JR({'error': 'Login Controller false creadentials'})
         except Exception as e:
-            return  JR({'response': 'Login Controller false user'})
+            return  JR({'error': 'Login Controller false user'})
     else:
-        return  JR({'response': 'Login Controller empty request'})
+        return  JR({'error': 'Login Controller empty request'})
     
 
    
