@@ -1,15 +1,16 @@
 import uuid
 import threading
 import time
+from datetime import datetime
 from django.http import HttpResponse
 from ..models import SuzdalUser
-from ..util.suzdal_response import JR
+from ..util.suzdal_response import JR, UP
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
 
 
 def createUser(request):
-    user_token = str(uuid.uuid4())
+    user_token = str(uuid.uuid4()).strip()
     userEmail = request.POST.get('user_email', 'none').strip() # alexey.saron@gmail.com
     
     if userEmail != 'none':
@@ -22,7 +23,10 @@ def createUser(request):
             mail_sent = send_email(userEmail, link)   
             
             if mail_sent == 1 or mail_sent == 'ok':
-                suzdal_user.token = user_token
+                if suzdal_user.token == None:
+                    suzdal_user.token = user_token
+                if suzdal_user.first_login == None:
+                    suzdal_user.first_login = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             suzdal_user.save()
             return JR({'response': 'Usuario Creado', 'id': suzdal_user.id})
     else:
@@ -60,40 +64,19 @@ def loginFunction(request):
     user_token = request.POST.get('token', 'none').strip()
 
     if user_id != 'none' and user_email != 'none' and user_token != 'none':
-        try:
-            # Start a new thread
-            # param1 = 'Hello'
-            # param2 = 'World'
-            # thread = threading.Thread(target=background_task, args=(param1, param2))
-            # thread.start()
-            
+        try: 
             suzdal_user = SuzdalUser.objects.get(id=user_id)
-            if suzdal_user.token == user_token:
-                return  JR({
-                    'id': suzdal_user.id,
-                    'province': suzdal_user.province,
-                    'zone':suzdal_user.zone,
-                    'category': suzdal_user.category,
-                    'city': suzdal_user.city,
-                    'name': suzdal_user.name,
-                    'age': suzdal_user.age,
-                    'phone': suzdal_user.phone,
-                    'page_title': suzdal_user.page_title,
-                    'about_me': suzdal_user.about_me,
-                    'cover_image': suzdal_user.cover_image
-                })
+            suzdal_user.last_login  = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+           
+            if suzdal_user.token == user_token and suzdal_user.email == user_email:
+                suzdal_user.save()
+                return  UP(suzdal_user)
             else:
-                return  JR({'response': 'Login Controller false creadentials'+suzdal_user.token})
+                return  JR({'response': 'Login Controller false creadentials'})
         except Exception as e:
-            return  JR({'response': 'Login Controller false user '+ str(e)})
+            return  JR({'response': 'Login Controller false user'})
     else:
         return  JR({'response': 'Login Controller empty request'})
     
-
-
-def background_task(arg1, arg2):
-    time.sleep(900)
-    print(arg1, arg2)
-    pass
 
    
