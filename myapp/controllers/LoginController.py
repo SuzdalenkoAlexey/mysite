@@ -19,12 +19,12 @@ def createUser(request):
         
         if index1 != -1 and index2 != -1:
             suzdal_user = SuzdalUser.objects.get_or_create(email=userEmail)[0]
-            link = '?email='+userEmail+'&token='+user_token+'&id='+str(suzdal_user.id)
+            if suzdal_user.token == None:
+                suzdal_user.token = user_token
+            link = '?email='+userEmail+'&token='+suzdal_user.token+'&id='+str(suzdal_user.id)
             mail_sent = send_email(userEmail, link)   
             
             if mail_sent == 1 or mail_sent == 'ok':
-                if suzdal_user.token == None:
-                    suzdal_user.token = user_token
                 if suzdal_user.first_login == None:
                     suzdal_user.first_login = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             suzdal_user.save()
