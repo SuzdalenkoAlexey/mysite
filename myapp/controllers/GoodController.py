@@ -14,5 +14,5 @@ def getGoodUsers(request):
         x = {'id':r[0], 'province':r[1], 'category':r[2], 'city':r[3], 'name':r[4], 'age':r[5], 'cover_image':r[6]}
         out_data += [x]
     cursor.close()
-    
+    # que mas pasa
     return JR({'res':out_data})
