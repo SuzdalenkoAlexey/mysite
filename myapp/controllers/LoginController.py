@@ -1,12 +1,8 @@
 import uuid
-import threading
-import time
 from datetime import datetime
-from django.http import HttpResponse
 from ..models import SuzdalUser
 from ..util.suzdal_response import JR, UP
 from django.core.mail import EmailMessage
-from django.http import HttpResponse
 
 
 def createUser(request):
@@ -28,7 +24,7 @@ def createUser(request):
                 if suzdal_user.first_login == None:
                     suzdal_user.first_login = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             suzdal_user.save()
-            return JR({'res':'Usuario Creado','id':str(suzdal_user.id),'message':'Le enviamos un correo para que pueda iniciar sesión'})
+            return JR({'res':'Cuenta Creada','id':str(suzdal_user.id),'message':'Le enviamos un correo para que pueda iniciar sesión'})
     else:
         return JR({'error': 'error'})
     
