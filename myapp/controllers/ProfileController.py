@@ -78,3 +78,18 @@ def convert_png_to_jpg_base64(base64_data, quality=11):
         converted_base64_data = "data:image/jpeg;base64," + base64.b64encode(converted_img_io.getvalue()).decode('utf-8')
         return converted_base64_data
 
+
+
+def activateProfile(request):
+    userId = request.POST.get('id', '').strip()
+    userTk = request.POST.get('token', '').strip()
+    try:
+        suzdal_user = SuzdalUser.objects.get(id=userId)
+        if suzdal_user.token == userTk:
+            suzdal_user.state = 1
+            suzdal_user.save()
+            return UP(suzdal_user)
+        else:
+            return JR({'error':'user no found'})
+    except Exception as e:
+        return JR({'error':str(e)})

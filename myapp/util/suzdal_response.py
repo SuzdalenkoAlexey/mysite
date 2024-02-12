@@ -22,6 +22,7 @@ def UP(userModel):
         'phone': userModel.phone,
         'page_title': userModel.page_title,
         'about_me': userModel.about_me,
+        'state': userModel.state,
         'cover_image': userModel.cover_image
     }
     jsonResponse = JsonResponse(x)

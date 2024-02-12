@@ -4,6 +4,7 @@ from ..util.suzdal_response import JR
 def getGoodUsers(request):
     slq = """SELECT id, province, category, city, name, age, cover_image
              FROM suzdal_user 
+             WHERE state = 1
              ORDER BY id DESC
           """
     cursor = connection.cursor()
