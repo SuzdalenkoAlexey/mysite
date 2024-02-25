@@ -145,3 +145,7 @@ EMAIL_PORT = 587                                            # 587 465
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'mis.citas.app@gmail.com'
 EMAIL_HOST_PASSWORD = 'eekb rgeg zjfj ayvf'
+
+
+# EMAIL_HOST_USER = 'afrodita.app.email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'tsqo dcyv irta ywri'

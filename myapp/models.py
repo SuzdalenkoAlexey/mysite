@@ -40,6 +40,8 @@ class SuzdalImage(models.Model):
     image2      = models.TextField(null=True)
     image3      = models.TextField(null=True)
     image4      = models.TextField(null=True)
+    image5      = models.TextField(null=True)
+    image6      = models.TextField(null=True)
 
     class Meta:
         db_table = 'suzdal_image'

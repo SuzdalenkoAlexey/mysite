@@ -24,23 +24,23 @@ def createUser(request):
                 if suzdal_user.first_login == None:
                     suzdal_user.first_login = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             suzdal_user.save()
-            return JR({'res':'Cuenta Creada','id':str(suzdal_user.id),'message':'Le enviamos un correo para que pueda iniciar sesión'})
+            return JR({'res':'Cuenta creada','id':str(suzdal_user.id),'message':'Le enviamos un correo para que pueda iniciar sesión'})
     else:
         return JR({'error': 'error'})
     
 
 # 192.168.51.166:5500/publicar-perfil/?email=alexey.saron@gmail.com&token=99b31467-216c-4c28-9b0d-eb3652bb91ff
 def send_email(userEmail, link):
-    subject        = 'MIS CITAS'
+    subject        = 'Afrodita'
     from_email     = 'mis.citas.app@gmail.com'
-    recipient_list = [userEmail, 'alexey.saron@gmail.com']
+    recipient_list = [userEmail, 'mis.citas.app@gmail.com']
     html_message = '''
     <html>
         <body style="background-color: #fff8f4;">
             <div style="text-align: center; font-size: 22px;">
-                <p>Inicia sesión en MIS CITAS y pública tu perfil</p>
-                <a href="https://miscitas.eu/publicar-perfil/index.html'''+link+'''" target="_blank">
-                    <input type="button" value="Login" style="background-color: #E36831; padding: 11px; border: none; border-radius: 4px; color:white; font-size: 22px;">
+                <p>Inicia sesión en Afrodita y pública tu perfil</p>
+                <a href="https://afrodita.app/publicar-perfil/index.html'''+link+'''" target="_blank">
+                    <input type="button" value="Inicio Sesión" style="background-color: #E36831; padding: 11px; border: none; border-radius: 4px; color:white; font-size: 22px;">
                 </a>
             </div>
         </body>
