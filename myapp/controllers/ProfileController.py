@@ -26,7 +26,7 @@ def saveUserData(request):
             suzdal_user.save()
 
             # save list user images
-            suzdal_image = SuzdalImage.objects.get_or_create(user_id=userId)[0]
+            suzdal_image = SuzdalImage.objects.get_or_create(user_id=suzdal_user.id)[0]
             if len(str(request.POST.get('img1', ''))) > 111: suzdal_image.image1 = fun_pre_save_img(request.POST.get('img1', ''))
             if len(str(request.POST.get('img2', ''))) > 111: suzdal_image.image2 = fun_pre_save_img(request.POST.get('img2', ''))
             if len(str(request.POST.get('img3', ''))) > 111: suzdal_image.image3 = fun_pre_save_img(request.POST.get('img3', ''))

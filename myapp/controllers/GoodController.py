@@ -23,7 +23,7 @@ def getGoodUsers(request):
 def getListUserImages(request):
     try:
         userId = request.GET.get('id', 0)
-        imgs = SuzdalImage.objects.get(id=userId)
+        imgs = SuzdalImage.objects.filter(user_id=userId).first()
         res = [imgs.image1, imgs.image2, imgs.image3, imgs.image4, imgs.image5, imgs.image6]
         return JR({'id': userId, 'res': res})
     except:
