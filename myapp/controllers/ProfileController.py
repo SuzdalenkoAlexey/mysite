@@ -3,7 +3,6 @@ from ..models import SuzdalImage, SuzdalUser
 import base64
 from io import BytesIO
 from PIL import Image, ExifTags
-import zlib
 
 
 def saveUserData(request):

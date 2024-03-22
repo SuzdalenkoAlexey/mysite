@@ -1,5 +1,6 @@
 from django.db import connection
 from ..util.suzdal_response import JR
+from ..models import SuzdalImage
 
 def getGoodUsers(request):
     slq = """SELECT id, province, category, city, name, age, cover_image
@@ -17,3 +18,13 @@ def getGoodUsers(request):
     cursor.close()
     # que mas pasa
     return JR({'res':out_data})
+
+
+def getListUserImages(request):
+    try:
+        userId = request.GET.get('id', 0)
+        imgs = SuzdalImage.objects.get(id=userId)
+        res = [imgs.image1, imgs.image2, imgs.image3, imgs.image4, imgs.image5, imgs.image6]
+        return JR({'id': userId, 'res': res})
+    except:
+        return JR({'id': userId, 'res': None})
